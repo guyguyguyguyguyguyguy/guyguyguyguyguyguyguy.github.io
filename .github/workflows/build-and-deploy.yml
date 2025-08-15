@@ -1,0 +1,42 @@
+name: Build and Deploy Org Mode Site
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Emacs
+      uses: purcell/setup-emacs@master
+      with:
+        version: 29.1
+
+    - name: Install Emacs packages
+      run: |
+        emacs --batch --eval "
+        (require 'package)
+        (add-to-list 'package-archives '(\"nongnu\" . \"https://elpa.nongnu.org/nongnu/\"))
+        (package-initialize)
+        (package-refresh-contents)
+        (package-install 'org-contrib)
+        (package-install 'htmlize)
+        "
+
+    - name: Build site
+      run: |
+        make site
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./www
