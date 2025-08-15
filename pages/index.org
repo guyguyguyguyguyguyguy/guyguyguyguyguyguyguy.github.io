@@ -5,6 +5,8 @@
 
 Welcome to my personal website built with Emacs and Org mode.
 
+I am a PhD candidate at the University of Edinburgh.
+
 # * Recent Posts
 
 # Check out my [[file:../blog/index.org][blog]] for the latest articles.
