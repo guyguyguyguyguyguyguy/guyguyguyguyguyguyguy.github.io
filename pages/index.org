@@ -3,15 +3,15 @@
 
 * Welcome
 
-Welcome to my personal website built with Emacs and Org mode.
-
 I am a PhD candidate at the University of Edinburgh.
+
+* Papers
+
+-
 
 # * Recent Posts
 
 # Check out my [[file:../blog/index.org][blog]] for the latest articles.
-
-* About
 
 This site is generated using Org mode's publishing system, inspired by
 https://ogbe.net/blog/emacs_org_static_site.
