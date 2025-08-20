@@ -1,0 +1,19 @@
+#+TITLE: CV
+#+AUTHOR: Guy Frankel
+#+DATE: [2025-08-20]
+#+OPTIONS: toc:nil num:nil html-postamble:nil
+
+* Education
+- 2024–present :: PhD, Computer Science — University of Edinburgh
+  Advised by [[https://polgreen.github.io/][Elizabeth Polgreen]].
+- 2020 :: MSc, Computational Science — Universiteit van Amsterdam
+- 2016 :: BSc, Biochemistry — Imperial College London
+
+* Experience
+- 2023–2024 :: Research Assistant — Technion (Group of Hila Peleg)
+- 2021–2022 :: PhD Candidate, Computer Science — Weizmann Institute of Science (Group of David Harel)
+- 2019–2020 :: Visiting Student, Physics of Complex Systems — Weizmann Institute of Science (Group of Ofer Feinerman)
+- 2014–2015 :: Erasmus Student, Molecular Biology — Karolinska Institutet (Group of Nico Dantuma)
+
+* Publications
+See the [[file:index.org::*Papers][papers]] section.

@@ -3,33 +3,33 @@
 
 * Welcome
 
-I am a PhD candidate at the University of Edinburgh working on program synthesis.
+I am a PhD candidate at the University of Edinburgh working on program synthesis under the supervision of [[https://polgreen.github.io/][Elizabeth Polgreen]].
+
+My [[file:cv.org][CV]].
+
 
 * Papers
 
-- Debugging into Existence with Program Synthesis [Link] \\
+- Debugging into Existence with Program Synthesis [link] [[[file:../papers/desynt.pdf][paper]]] \\
   *Guy Frankel*, Shay Segal and Hila Peleg. VL/HCC 2025.
 
 
-- Unlocking Hardware Verification with Oracle Guided Synthesis [Link] \\
+- Unlocking Hardware Verification with Oracle Guided Synthesis [link] \\
   Leiqi Ye, *Guy Frankel*, Yixuan Li, Jianyi Cheng and Elizabeth Polgreen. FMCAD 2025.
 
 
-- Challenges in Modeling and Unmodeling Complex Reactive Systems: Interaction Networks, Reaction to Emergent Effects, Reactive Rule Composition, and Multiple Time Scales [[[https://link.springer.com/chapter/10.1007/978-3-031-66339-0_7][Link]]] \\
+- Challenges in Modeling and Unmodeling Complex Reactive Systems: Interaction Networks, Reaction to Emergent Effects, Reactive Rule Composition, and Multiple Time Scales [[[https://link.springer.com/chapter/10.1007/978-3-031-66339-0_7][link]]] \\
   Assaf Marron, Irun R Cohen, *Guy Frankel*, David Harel, Smadar Szekely. MODELSWARD 2023.
 
 
-- Emergent regulation of ant foraging frequency through a computationally inexpensive forager movement rule [[[https://elifesciences.org/articles/77659.pdf][Link]]] \\
+- Emergent regulation of ant foraging frequency through a computationally inexpensive forager movement rule [[[https://elifesciences.org/articles/77659.pdf][link]]] \\
   *Guy Frankel*, Lior Baltiansky, Ofer Feinerman. eLife 2022.
 
 
 ** Workshop papers
-- Syntax-Guided Synthesis with Counterexample-Guided E-graphs: A Work-in-Progress Report [[[https://ceur-ws.org/Vol-4008/SMT_paper11.pdf][Link]]] \\
+- Syntax-Guided Synthesis with Counterexample-Guided E-graphs: A Work-in-Progress Report [[[https://ceur-ws.org/Vol-4008/SMT_paper11.pdf][link]]] \\
   *Guy Frankel*, Rudi Schneider, Michel Steuwer and Elizabeth Polgreen. SMT+PoS 2025.
 
-# * Recent Posts
-
-# Check out my [[file:../blog/index.org][blog]] for the latest articles.
 
 This site is generated using Org mode's publishing system, inspired by
 https://ogbe.net/blog/emacs_org_static_site.
