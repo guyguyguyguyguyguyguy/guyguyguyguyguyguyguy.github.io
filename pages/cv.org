@@ -16,4 +16,4 @@
 - 2014–2015 :: Erasmus Student, Molecular Biology — Karolinska Institutet (Group of Nico Dantuma)
 
 * Publications
-See the [[file:index.org::*Papers][papers]] section.
+See [[file:index.org::*Papers][papers]].

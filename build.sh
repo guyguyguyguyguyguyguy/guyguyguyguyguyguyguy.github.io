@@ -1,11 +1,25 @@
-#!/bin/bash
-BASEDIR=$(cd $(dirname "$0"); pwd)
-OUTDIR="${WEBSITE_OUT_DIR:-$BASEDIR/www}"
+#!/usr/bin/env bash
+set -euo pipefail
 
-echo "Building website to $OUTDIR"
+# Resolve OUT DIR from env (Makefile sets WEBSITE_OUT_DIR)
+: "${WEBSITE_OUT_DIR:?WEBSITE_OUT_DIR must be set}"
 
-cd "$BASEDIR/lisp"
-WEBSITE_OUT_DIR="$OUTDIR" \
-emacs --batch -l "./project.el" --eval="(build-site t)"
+# Set CLEAN=1 to force a clean build (see Makefile tweak below)
+CLEAN_FLAG=${CLEAN:-0}
 
-echo "Build complete. Output in $OUTDIR"
+EMACS_CMD='
+  (load-file "lisp/project.el")
+  ;; Ensure our link type is registered in batch
+  (require '\''org)
+'
+
+if [ "$CLEAN_FLAG" = "1" ]; then
+  EMACS_CMD="$EMACS_CMD
+  (org-publish-remove-all-timestamps)"
+fi
+
+EMACS_CMD="$EMACS_CMD
+  (org-publish \"website\" t)
+"
+
+emacs --batch --eval "$EMACS_CMD"

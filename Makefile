@@ -1,4 +1,3 @@
-# Makefile with GitHub Pages support
 OUTDIR ?= www
 DEPLOYDIR ?= /var/www/html
 
@@ -8,15 +7,18 @@ site:
 	mkdir -p $(OUTDIR)
 	WEBSITE_OUT_DIR=$(shell readlink -f $(OUTDIR)) ./build.sh
 
-# Local development server
+# Force a clean publish (clears timestamps)
+site-clean:
+	mkdir -p $(OUTDIR)
+	WEBSITE_OUT_DIR=$(shell readlink -f $(OUTDIR)) CLEAN=1 ./build.sh
+
 serve: site
 	cd $(OUTDIR) && python3 -m http.server 8000
 
-# GitHub Actions will use this
 deploy: site
 	@echo "Site built in $(OUTDIR)/ - GitHub Actions will handle deployment"
 
 clean:
 	rm -rf $(OUTDIR)/*
 
-.PHONY: all site serve deploy clean
+.PHONY: all site site-clean serve deploy clean
