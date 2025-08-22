@@ -10,7 +10,8 @@ My [[file:cv.org][CV]].
 
 * Papers
 
-- Debugging into Existence with Program Synthesis [link] [[[file:../papers/desynt.pdf][paper]]] \\
+- Debugging into Existence with Program Synthesis [link] [[{{{baseurl}}}papers/desynt.pdf][[paper]]]
+ \\
   *Guy Frankel*, Shay Segal and Hila Peleg. VL/HCC 2025.
 
 

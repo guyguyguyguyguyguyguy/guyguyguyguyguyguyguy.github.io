@@ -1,3 +1,0 @@
-#+TITLE: Blog Posts
-
-* [[file:hello-world.org][Hello World Hello World]]
