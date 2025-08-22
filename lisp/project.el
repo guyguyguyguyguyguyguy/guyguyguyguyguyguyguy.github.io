@@ -1,8 +1,8 @@
-;; ---------- project.el ----------
+;; Basic project setup for org-mode static site generator
 (require 'org)
 (require 'ox-html)
 
-;; Paths
+;; Project directories
 (defvar my-website-base-dir
   (file-name-as-directory
    (file-name-directory
@@ -13,71 +13,60 @@
   (or (getenv "WEBSITE_OUT_DIR")
       (file-name-concat my-website-base-dir "www")))
 
-;; GH Pages project site at https://USERNAME.github.io/website/
-(defvar my-website-baseurl "/website/")
+;; Basic org-export settings
+(setq org-export-html-coding-system 'utf-8-unix)
+(setq org-html-htmlize-output-type 'css)
+(setq org-html-doctype "html5")
+(setq org-html-html5-fancy t)
+(setq org-export-time-stamp-file nil)
+(setq org-html-link-org-files-as-html t)   ;; rewrite .org → .html on export
+(setq org-link-file-path-type 'relative)
 
-;; Export settings
-(setq org-export-time-stamp-file nil
-      org-html-doctype "html5"
-      org-html-html5-fancy t
-      org-html-htmlize-output-type 'css
-      org-export-html-coding-system 'utf-8-unix
-      org-html-link-org-files-as-html t
-      org-link-file-path-type 'relative)
 
-;; Custom link type that does NOT try to resolve files in the source tree.
-;; Usage in org: [[abs:papers/desynt.pdf][paper]]
-(org-link-set-parameters
- "abs"
- :follow (lambda (path) (browse-url (concat my-website-baseurl path)))
- :export (lambda (path desc backend _)
-           (let* ((href (concat my-website-baseurl path))
-                  (label (or desc path)))
-             (pcase backend
-               ('html (format "<a href=\"%s\">%s</a>" href label))
-               (_ href)))))
+;; Custom sitemap function (simplified)
+(defun my-blog-sitemap (title list)
+  "Generate the blog landing page."
+  (concat "#+TITLE: " title "\n\n"
+          (mapconcat
+           (lambda (li)
+             (format "* %s" (car li)))
+           (cdr list) "\n")))
 
+;; Project configuration
 (setq org-publish-project-alist
-      `(
-        ("website" :components ("pages" "assets-css" "assets-papers"))
+      `(("website"
+         :components ("blog-pages" "blog-static" "website-static"))
 
-        ;; Org pages -> www/
-        ("pages"
+        ("blog-pages"
          :base-directory ,(file-name-concat my-website-base-dir "pages")
          :base-extension "org"
-         :recursive t
          :publishing-directory ,my-website-out-dir
          :publishing-function org-html-publish-to-html
          :headline-levels 4
-         :html-head ,(format "<link rel=\"stylesheet\" href=\"%scss/style.css\" type=\"text/css\" />"
-                             my-website-baseurl)
+         :html-head "<link rel=\"stylesheet\" href=\"/css/style.css\" type=\"text/css\" />"
          :html-preamble t
          :html-postamble nil)
 
-        ;; css/js/images -> www/css/
-        ("assets-css"
+        ;; Static files that already live under css/
+        ("blog-static"
          :base-directory ,(file-name-concat my-website-base-dir "css")
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|svg\\|ico"
-         :recursive t
+         :base-extension "css\\|js\\|png\\|jpg\\|gif"
          :publishing-directory ,(file-name-concat my-website-out-dir "css")
-         :publishing-function org-publish-attachment)
+         :publishing-function org-publish-attachment
+         :recursive t)
 
-        ;; PDFs/images -> www/papers/
-        ("assets-papers"
+        ;; New: publish PDFs (and other non-org files) from a "papers" dir
+        ("website-static"
          :base-directory ,(file-name-concat my-website-base-dir "papers")
-         :base-extension "pdf\\|png\\|jpg\\|svg"
-         :recursive t
+         :base-extension "pdf\\|png\\|jpg"
          :publishing-directory ,(file-name-concat my-website-out-dir "papers")
-         :publishing-function org-publish-attachment)
-        ))
+         :publishing-function org-publish-attachment
+         :recursive t)))
 
+;; Function to build the site
 (defun build-site (&optional force)
-  "Publish the whole site. With C-u, force rebuild."
+  "Build the website. With prefix argument, force rebuild everything."
   (interactive "P")
-  (let ((forcep (or force t))) ;; always force in batch
-    (when (fboundp 'org-publish-remove-all-timestamps)
-      (org-publish-remove-all-timestamps))
-    (when (fboundp 'org-publish-clear-timestamps)
-      (org-publish-clear-timestamps))
-    (org-publish "website" forcep)))
-;; ---------- end project.el ----------
+  (if force
+      (org-publish "website" t)
+    (org-publish "website")))

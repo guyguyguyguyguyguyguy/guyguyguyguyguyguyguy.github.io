@@ -10,7 +10,7 @@ My [[file:cv.org][CV]].
 
 * Papers
 
-- Debugging into Existence with Program Synthesis [link] [[[{{{baseurl}}}papers/desynt.pdf][[[[abs:papers/desynt.pdf][paper]]]]] \\
+- Debugging into Existence with Program Synthesis [link] [[[file:../papers/desynt.pdf][paper]]] \\
   *Guy Frankel*, Shay Segal and Hila Peleg. VL/HCC 2025.
 
 
@@ -29,7 +29,6 @@ My [[file:cv.org][CV]].
 ** Workshop papers
 - Syntax-Guided Synthesis with Counterexample-Guided E-graphs: A Work-in-Progress Report [[[https://ceur-ws.org/Vol-4008/SMT_paper11.pdf][link]]] \\
   *Guy Frankel*, Rudi Schneider, Michel Steuwer and Elizabeth Polgreen. SMT+PoS 2025.
-
 
 This site is generated using Org mode's publishing system, inspired by
 https://ogbe.net/blog/emacs_org_static_site.
