@@ -3,7 +3,8 @@
 
 * Welcome
 
-I am a PhD candidate at the University of Edinburgh working on program synthesis under the supervision of [[https://polgreen.github.io/][Elizabeth Polgreen]].
+I am a PhD candidate at the University of Edinburgh in the MLSystems CDT, working on program synthesis under the supervision of [[https://polgreen.github.io/][Elizabeth Polgreen]].
+[[../54.jpg]]
 
 My [[file:cv.org][CV]].
 
