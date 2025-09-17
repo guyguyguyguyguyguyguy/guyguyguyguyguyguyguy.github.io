@@ -1,10 +1,12 @@
 #+TITLE: My Website
 #+AUTHOR: guy
 
+#+ATTR_HTML: :class profile-image
+[[file:../papers/54.jpg]]
+
 * Welcome
 
 I am a PhD candidate at the University of Edinburgh in the MLSystems CDT, working on program synthesis under the supervision of [[https://polgreen.github.io/][Elizabeth Polgreen]].
-[[../54.jpg]]
 
 My [[file:cv.org][CV]].
 
