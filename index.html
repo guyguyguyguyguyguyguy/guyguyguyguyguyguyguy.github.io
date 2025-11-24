@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Website</title>
-<meta name="author" content="guy" />
+<title>My Website My Website</title>
+<meta name="author" content="guy guy" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -195,28 +195,73 @@
 <body>
 <div id="content" class="content">
 <header>
-<h1 class="title">My Website</h1>
+<h1 class="title">My Website My Website</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb9dd138">1. Welcome</a></li>
-<li><a href="#org15c830f">2. Papers</a>
+<li><a href="#org26240a3">1. Welcome</a></li>
+<li><a href="#orgdf5800d">2. Papers</a>
 <ul>
-<li><a href="#org3fa4d15">2.1. Workshop papers</a></li>
+<li><a href="#org25d43c8">2.1. Workshop papers</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
+<div class="profile-image">
+  <canvas id="slime-canvas" width="600" height="600"></canvas>
+</div>
 
-<figure id="org7d4c4f0">
-<img src="../papers/54.jpg" alt="54.jpg" class="profile-image">
+<script type="module">
+  import Slime from "/js/Slime.js";
 
-</figure>
+  const img = new Image();
+  img.src = "/papers/id2.jpeg"; // or "/papers/id2.jpg" if you renamed
 
-<div id="outline-container-orgb9dd138" class="outline-2">
-<h2 id="orgb9dd138"><span class="section-number-2">1.</span> Welcome</h2>
+  img.onload = () => {
+    const canvas = document.getElementById("slime-canvas");
+    const ctx = canvas.getContext("2d");
+
+    const W = canvas.width;
+    const H = canvas.height;
+
+    const tmp = document.createElement("canvas");
+    tmp.width = W;
+    tmp.height = H;
+    const tctx = tmp.getContext("2d");
+
+    tctx.drawImage(img, 0, 0, W, H);
+    const srcData = tctx.getImageData(0, 0, W, H);
+
+    const algo = new Slime();
+    algo.setSourceImage({ data: srcData.data, width: W, height: H });
+
+    const params = {
+      blur: 10,
+      num_agents: 100000,
+      sensor_angle: 0.5,
+      sensor_dist: 9,
+      turn_speed: 0.8,
+      move_speed: 1.5,
+      decay_rate: 0.06,
+      deposit_amount: 0.09,
+      brightness_influence: 70,
+    };
+
+    function step() {
+      algo.findBestRectangle(params);
+      algo.render(ctx, params);
+      requestAnimationFrame(step);
+    }
+
+    step();
+  };
+</script>
+
+
+<div id="outline-container-org26240a3" class="outline-2">
+<h2 id="org26240a3"><span class="section-number-2">1.</span> Welcome</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 I am a PhD candidate at the University of Edinburgh in the MLSystems CDT, working on program synthesis under the supervision of <a href="https://polgreen.github.io/">Elizabeth Polgreen</a>.
@@ -229,8 +274,8 @@ My <a href="cv.html">CV</a>.
 </div>
 
 
-<div id="outline-container-org15c830f" class="outline-2">
-<h2 id="org15c830f"><span class="section-number-2">2.</span> Papers</h2>
+<div id="outline-container-orgdf5800d" class="outline-2">
+<h2 id="orgdf5800d"><span class="section-number-2">2.</span> Papers</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Debugging into Existence with Program Synthesis [link] [<a href="../papers/desynt.pdf">paper</a>] <br>
@@ -257,8 +302,8 @@ Assaf Marron, Irun R Cohen, <b>Guy Frankel</b>, David Harel, Smadar Szekely. MOD
 </div>
 
 
-<div id="outline-container-org3fa4d15" class="outline-3">
-<h3 id="org3fa4d15"><span class="section-number-3">2.1.</span> Workshop papers</h3>
+<div id="outline-container-org25d43c8" class="outline-3">
+<h3 id="org25d43c8"><span class="section-number-3">2.1.</span> Workshop papers</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Syntax-Guided Synthesis with Counterexample-Guided E-graphs: A Work-in-Progress Report [<a href="https://ceur-ws.org/Vol-4008/SMT_paper11.pdf">link</a>] <br>
