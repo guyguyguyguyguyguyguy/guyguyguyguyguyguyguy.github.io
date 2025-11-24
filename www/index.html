@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Website</title>
-<meta name="author" content="guy" />
+<title>My Website My Website</title>
+<meta name="author" content="guy guy" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -195,7 +195,7 @@
 <body>
 <div id="content" class="content">
 <header>
-<h1 class="title">My Website</h1>
+<h1 class="title">My Website My Website</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -209,11 +209,56 @@
 </ul>
 </div>
 </nav>
+<div class="profile-image">
+  <canvas id="slime-canvas" width="600" height="600"></canvas>
+</div>
 
-<figure id="orgb96252a">
-<img src="../papers/54.jpg" alt="54.jpg" class="profile-image">
+<script type="module">
+  import Slime from "/js/Slime.js";
 
-</figure>
+  const img = new Image();
+  img.src = "/papers/id2.jpeg"; // or "/papers/id2.jpg" if you renamed
+
+  img.onload = () => {
+    const canvas = document.getElementById("slime-canvas");
+    const ctx = canvas.getContext("2d");
+
+    const W = canvas.width;
+    const H = canvas.height;
+
+    const tmp = document.createElement("canvas");
+    tmp.width = W;
+    tmp.height = H;
+    const tctx = tmp.getContext("2d");
+
+    tctx.drawImage(img, 0, 0, W, H);
+    const srcData = tctx.getImageData(0, 0, W, H);
+
+    const algo = new Slime();
+    algo.setSourceImage({ data: srcData.data, width: W, height: H });
+
+    const params = {
+      blur: 10,
+      num_agents: 100000,
+      sensor_angle: 0.5,
+      sensor_dist: 9,
+      turn_speed: 0.8,
+      move_speed: 1.5,
+      decay_rate: 0.06,
+      deposit_amount: 0.09,
+      brightness_influence: 70,
+    };
+
+    function step() {
+      algo.findBestRectangle(params);
+      algo.render(ctx, params);
+      requestAnimationFrame(step);
+    }
+
+    step();
+  };
+</script>
+
 
 <div id="outline-container-org3142268" class="outline-2">
 <h2 id="org3142268"><span class="section-number-2">1.</span> Welcome</h2>

@@ -35,7 +35,7 @@
 ;; Project configuration
 (setq org-publish-project-alist
       `(("website"
-         :components ("blog-pages" "blog-static" "website-static"))
+         :components ("blog-pages" "blog-static" "website-static" "website-js"))
 
         ("blog-pages"
          :base-directory ,(file-name-concat my-website-base-dir "pages")
@@ -47,7 +47,6 @@
          :html-preamble t
          :html-postamble nil)
 
-        ;; Static files that already live under css/
         ("blog-static"
          :base-directory ,(file-name-concat my-website-base-dir "css")
          :base-extension "css\\|js\\|png\\|jpg\\|gif"
@@ -55,11 +54,18 @@
          :publishing-function org-publish-attachment
          :recursive t)
 
-        ;; New: publish PDFs (and other non-org files) from a "papers" dir
         ("website-static"
          :base-directory ,(file-name-concat my-website-base-dir "papers")
-         :base-extension "pdf\\|png\\|jpg"
+         :base-extension "pdf\\|png\\|jpg\\|jpeg"
          :publishing-directory ,(file-name-concat my-website-out-dir "papers")
+         :publishing-function org-publish-attachment
+         :recursive t)
+
+        ;; JS files (manually written)
+        ("website-js"
+         :base-directory ,(file-name-concat my-website-base-dir "js")
+         :base-extension "js"
+         :publishing-directory ,(file-name-concat my-website-out-dir "js")
          :publishing-function org-publish-attachment
          :recursive t)))
 

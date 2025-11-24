@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "strict": false,
+    "outDir": "js",
+    "allowJs": false,
+    "esModuleInterop": true
+  },
+  "include": ["js/Slime.ts"]
+}
