@@ -200,10 +200,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga115254">1. Welcome</a></li>
-<li><a href="#org397b7eb">2. Papers</a>
+<li><a href="#org60eb2fd">1. Welcome</a></li>
+<li><a href="#org3065236">2. Papers</a>
 <ul>
-<li><a href="#org7232cb0">2.1. Workshop papers</a></li>
+<li><a href="#org7ad8814">2.1. Workshop papers</a></li>
 </ul>
 </li>
 </ul>
@@ -217,6 +217,8 @@
   import Slime from "/js/Slime.js";
 
   const img = new Image();
+  var d = new Date(); 
+  var sec = d.getSeconds();
   img.src = "/papers/id2.jpeg";
 
   img.onload = () => {
@@ -244,32 +246,31 @@
       sensor_dist: 7,
       turn_speed: 0.8,
       move_speed: 1.2,
-      decay_rate: 0.07,
+      decay_rate: sec * 0.003,
       deposit_amount: 0.09,
-      brightness_influence: 4070,
+      brightness_influence: sec,
     };
 
-    // ← add this
     let frame = 0;
-    const slowFactor = 6;
+    const slowFactor = 8;
 
     function step() {
-      if (frame % slowFactor === 0) {
-        algo.findBestRectangle(params);
+      if ((frame < 11 || frame > 50) && frame % slowFactor == 0) {
+	    algo.findBestRectangle(params);
+	    if ((frame >= 12 || frame == 8) && frame % slowFactor == 0) {
+            	algo.render(ctx, params);
+	    }
       }
-
-      algo.render(ctx, params);
       frame++;
       requestAnimationFrame(step);
     }
-
     step();
   };
 </script>
 
 
-<div id="outline-container-orga115254" class="outline-2">
-<h2 id="orga115254"><span class="section-number-2">1.</span> Welcome</h2>
+<div id="outline-container-org60eb2fd" class="outline-2">
+<h2 id="org60eb2fd"><span class="section-number-2">1.</span> Welcome</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 I am a PhD candidate at the University of Edinburgh in the MLSystems CDT, working on program synthesis under the supervision of <a href="https://polgreen.github.io/">Elizabeth Polgreen</a>.
@@ -282,8 +283,8 @@ My <a href="cv.html">CV</a>.
 </div>
 
 
-<div id="outline-container-org397b7eb" class="outline-2">
-<h2 id="org397b7eb"><span class="section-number-2">2.</span> Papers</h2>
+<div id="outline-container-org3065236" class="outline-2">
+<h2 id="org3065236"><span class="section-number-2">2.</span> Papers</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Debugging into Existence with Program Synthesis [link] [<a href="../papers/desynt.pdf">paper</a>] <br>
@@ -310,8 +311,8 @@ Assaf Marron, Irun R Cohen, <b>Guy Frankel</b>, David Harel, Smadar Szekely. MOD
 </div>
 
 
-<div id="outline-container-org7232cb0" class="outline-3">
-<h3 id="org7232cb0"><span class="section-number-3">2.1.</span> Workshop papers</h3>
+<div id="outline-container-org7ad8814" class="outline-3">
+<h3 id="org7ad8814"><span class="section-number-3">2.1.</span> Workshop papers</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Syntax-Guided Synthesis with Counterexample-Guided E-graphs: A Work-in-Progress Report [<a href="https://ceur-ws.org/Vol-4008/SMT_paper11.pdf">link</a>] <br>
