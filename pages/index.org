@@ -13,7 +13,7 @@
   import Slime from "/js/Slime.js";
 
   const img = new Image();
-  img.src = "/papers/id2.jpeg"; // or "/papers/id2.jpg" if you renamed
+  img.src = "/papers/id2.jpeg";
 
   img.onload = () => {
     const canvas = document.getElementById("slime-canvas");
@@ -34,20 +34,28 @@
     algo.setSourceImage({ data: srcData.data, width: W, height: H });
 
     const params = {
-      blur: 10,
+      blur: 7,
       num_agents: 100000,
-      sensor_angle: 0.5,
-      sensor_dist: 9,
+      sensor_angle: 0.3,
+      sensor_dist: 7,
       turn_speed: 0.8,
-      move_speed: 1.5,
-      decay_rate: 0.06,
+      move_speed: 1.2,
+      decay_rate: 0.07,
       deposit_amount: 0.09,
-      brightness_influence: 70,
+      brightness_influence: 4070,
     };
 
+    // ← add this
+    let frame = 0;
+    const slowFactor = 6;
+
     function step() {
-      algo.findBestRectangle(params);
+      if (frame % slowFactor === 0) {
+        algo.findBestRectangle(params);
+      }
+
       algo.render(ctx, params);
+      frame++;
       requestAnimationFrame(step);
     }
 
