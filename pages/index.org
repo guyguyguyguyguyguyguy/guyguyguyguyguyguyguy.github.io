@@ -37,7 +37,7 @@
 
     const params = {
       blur: 7,
-      num_agents: 100000,
+      num_agents: 3330 * sec,
       sensor_angle: 0.3,
       sensor_dist: 7,
       turn_speed: 0.8,
