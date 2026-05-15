@@ -75,8 +75,12 @@ My [[file:cv.org][CV]].
 
 * Papers
 
+- Massively Parallel Mining of Specifications for Hardware Designs \\
+  Leiqi Ye^{†}, *Guy Frankel*^{†}, Jianyi Cheng, Elizabeth Polgreen. CAV 2026. @@html:<span style="font-size:0.75em">†&thinsp;Equal contribution</span>@@
+
+
 - Debugging into Existence with Program Synthesis [link] [[[file:../papers/desynt.pdf][paper]]] \\
-  *Guy Frankel*, Shay Segal and Hila Peleg. VL/HCC 2025.
+  Shay Segal^{†}, *Guy Frankel*^{†}, and Hila Peleg. VL/HCC 2025. @@html:<span style="font-size:0.75em">†&thinsp;Equal contribution</span>@@
 
 
 - Unlocking Hardware Verification with Oracle Guided Synthesis [link] \\
@@ -88,7 +92,7 @@ My [[file:cv.org][CV]].
 
 
 - Emergent regulation of ant foraging frequency through a computationally inexpensive forager movement rule [[[https://elifesciences.org/articles/77659.pdf][link]]] \\
-  *Guy Frankel*, Lior Baltiansky, Ofer Feinerman. eLife 2022.
+  Lior Baltiansky^{†}, *Guy Frankel*^{†}, Ofer Feinerman. eLife 2022. @@html:<span style="font-size:0.75em">†&thinsp;Equal contribution</span>@@
 
 
 ** Workshop papers
