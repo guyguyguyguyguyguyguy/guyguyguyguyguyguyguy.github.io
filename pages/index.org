@@ -1,7 +1,4 @@
-#+TITLE: My Website
-#+AUTHOR: guy
-
-#+TITLE: My Website
+#+TITLE: Guy Frankel Website
 #+AUTHOR: guy
 
 #+BEGIN_EXPORT html
@@ -76,11 +73,11 @@ My [[file:cv.org][CV]].
 * Papers
 
 - Massively Parallel Mining of Specifications for Hardware Designs \\
-  Leiqi Ye^{†}, *Guy Frankel*^{†}, Jianyi Cheng, Elizabeth Polgreen. CAV 2026. @@html:<span style="font-size:0.75em">†&thinsp;Equal contribution</span>@@
+  Leiqi Ye^{†}, @@html:<strong>@@Guy Frankel@@html:</strong>@@^{†}, Jianyi Cheng, Elizabeth Polgreen. CAV 2026. @@html:<span style="font-size:0.75em">†&thinsp;Equal contribution</span>@@
 
 
 - Debugging into Existence with Program Synthesis [link] [[[file:../papers/desynt.pdf][paper]]] \\
-  Shay Segal^{†}, *Guy Frankel*^{†}, and Hila Peleg. VL/HCC 2025. @@html:<span style="font-size:0.75em">†&thinsp;Equal contribution</span>@@
+  Shay Segal^{†}, @@html:<strong>@@Guy Frankel@@html:</strong>@@^{†}, and Hila Peleg. VL/HCC 2025. @@html:<span style="font-size:0.75em">†&thinsp;Equal contribution</span>@@
 
 
 - Unlocking Hardware Verification with Oracle Guided Synthesis [link] \\
@@ -92,7 +89,7 @@ My [[file:cv.org][CV]].
 
 
 - Emergent regulation of ant foraging frequency through a computationally inexpensive forager movement rule [[[https://elifesciences.org/articles/77659.pdf][link]]] \\
-  Lior Baltiansky^{†}, *Guy Frankel*^{†}, Ofer Feinerman. eLife 2022. @@html:<span style="font-size:0.75em">†&thinsp;Equal contribution</span>@@
+  Lior Baltiansky^{†}, @@html:<strong>@@Guy Frankel@@html:</strong>@@^{†}, Ofer Feinerman. eLife 2022. @@html:<span style="font-size:0.75em">†&thinsp;Equal contribution</span>@@
 
 
 ** Workshop papers

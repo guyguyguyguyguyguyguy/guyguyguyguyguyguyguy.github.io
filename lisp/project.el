@@ -1,6 +1,13 @@
-;; Basic project setup for org-mode static site generator
+(setq org-emphasis-regexp-components
+      '("-[:space:]('\"{"
+        "-[:space:].,:!?;'\")}\\[^"
+        "[:space:]"
+        "."
+        1))
 (require 'org)
 (require 'ox-html)
+(org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
+;; ... rest of your config
 
 ;; Project directories
 (defvar my-website-base-dir
